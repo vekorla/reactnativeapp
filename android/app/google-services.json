@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "434247888194",
+    "firebase_url": "https://kohls-react-native-poc.firebaseio.com",
+    "project_id": "kohls-react-native-poc",
+    "storage_bucket": "kohls-react-native-poc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434247888194:android:a90c870c76fac60a",
+        "android_client_info": {
+          "package_name": "com.kohlsreactnativepoc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "434247888194-k388f3b7g9j3bn8fcs2ennsb35pn5e4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0FvNwVUXJSYii5J9jK195FUMD2VDyakQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
