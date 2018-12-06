@@ -1,5 +1,6 @@
 package com.kohlsreactnativepoc;
 
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -35,6 +36,7 @@ public class MyAdobeServiceListener extends FirebaseMessagingService {
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
+            sendNotification(remoteMessage.getData().get("message"));
 
             if (/* Check if data needs to be processed by long running job */ true) {
                 // For long-running tasks (10 seconds or more) use Firebase Job Dispatcher.
@@ -50,7 +52,8 @@ public class MyAdobeServiceListener extends FirebaseMessagingService {
         if (remoteMessage.getNotification() != null) {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
             //Log.d(TAG, "Message Notification Body: Hi Kohl's Team ");
-           sendNotification(remoteMessage.getNotification().getBody());
+           //sendNotification(remoteMessage.getNotification().getBody());
+
             //sendNotification("Hi Kohl's Team");
 
             /*runOnUiThread(new Runnable() {
@@ -79,7 +82,19 @@ public class MyAdobeServiceListener extends FirebaseMessagingService {
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
 
+
+
+
         NotificationManager notificationManager = (NotificationManager)getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("default",
+                    "YOUR_CHANNEL_NAME",
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            channel.setDescription("YOUR_NOTIFICATION_CHANNEL_DISCRIPTION");
+            notificationManager.createNotificationChannel(channel);
+        }
+
         notificationManager.notify(0, notificationBuilder.build());
     }
 
